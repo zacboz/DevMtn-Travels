@@ -1,5 +1,7 @@
 angular.module('devmtnTravel').service('mainSrv', function(){
 
+
+
     this.travelInfo = [{
         city: 'New York',
         country: 'United States',
@@ -25,4 +27,15 @@ angular.module('devmtnTravel').service('mainSrv', function(){
 
 
     }]
+
+    this.getCity = function(stateParams){
+      var travelInfo = this.travelInfo;
+      for(var i = 0; i < travelInfo.length; i++){
+        console.log(travelInfo, stateParams);
+
+        if(travelInfo[i].id === parseInt(stateParams.id)){
+          return travelInfo[i];
+        }
+      }
+    }
 })
